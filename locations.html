@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Locations | FedEx</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="utility-bar">
+    <div class="container utility-bar-inner">
+      <div class="utility-links"><a href="#">FedEx Mobile</a><a href="#">Get Notifications</a></div>
+      <div class="utility-right"><a href="#">English</a><a href="/login.html">Sign Up or Log In</a></div>
+    </div>
+  </div>
+
+  <header class="main-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <svg viewBox="0 0 200 60" width="140" height="42">
+          <text x="5" y="42" font-family="Inter, sans-serif" font-weight="800" font-size="38" fill="#4D148C">Fed</text>
+          <text x="82" y="42" font-family="Inter, sans-serif" font-weight="800" font-size="38" fill="#FF6600">Ex</text>
+        </svg>
+      </a>
+      <nav class="main-nav">
+        <a href="/shipping.html" class="nav-link">Shipping</a>
+        <a href="/tracking.html" class="nav-link">Tracking</a>
+        <a href="#" class="nav-link">Design & Print</a>
+        <a href="/locations.html" class="nav-link" style="border-bottom-color:#4D148C;color:#4D148C;">Locations</a>
+        <a href="/support.html" class="nav-link">Support</a>
+        <a href="#" class="nav-link">Account</a>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Find FedEx Locations</h1>
+      <p>Search for FedEx offices, drop-off locations, and pickup points near you</p>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="location-search">
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:16px;">Search Nearby Locations</h3>
+        <div class="location-search-inner">
+          <input type="text" placeholder="Enter address, city, state, or ZIP code">
+          <button class="btn-primary">SEARCH</button>
+        </div>
+        <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
+          <label style="font-size:13px;display:flex;align-items:center;gap:4px;cursor:pointer;">
+            <input type="checkbox" checked> FedEx Office
+          </label>
+          <label style="font-size:13px;display:flex;align-items:center;gap:4px;cursor:pointer;">
+            <input type="checkbox" checked> FedEx Ship Center
+          </label>
+          <label style="font-size:13px;display:flex;align-items:center;gap:4px;cursor:pointer;">
+            <input type="checkbox" checked> FedEx Drop Box
+          </label>
+          <label style="font-size:13px;display:flex;align-items:center;gap:4px;cursor:pointer;">
+            <input type="checkbox"> FedEx Authorized Ship Center
+          </label>
+          <label style="font-size:13px;display:flex;align-items:center;gap:4px;cursor:pointer;">
+            <input type="checkbox"> Walgreens
+          </label>
+          <label style="font-size:13px;display:flex;align-items:center;gap:4px;cursor:pointer;">
+            <input type="checkbox"> Dollar General
+          </label>
+        </div>
+      </div>
+
+      <h2 style="font-size:22px;font-weight:800;margin-bottom:24px;">Nearby Locations</h2>
+
+      <div class="locations-list">
+        <div class="location-card">
+          <span class="location-type">FedEx Office</span>
+          <h3>FedEx Office Print & Ship Center</h3>
+          <p>228 E 45th St</p>
+          <p>New York, NY 10017</p>
+          <p style="margin-top:8px;font-size:13px;"><strong>Phone:</strong> (212) 867-5309</p>
+          <p class="location-hours">Open Now &bull; Closes 9:00 PM</p>
+          <div style="margin-top:12px;display:flex;gap:8px;">
+            <a href="#" class="btn-primary" style="padding:8px 16px;font-size:12px;">Get Directions</a>
+          </div>
+        </div>
+        <div class="location-card">
+          <span class="location-type">FedEx Ship Center</span>
+          <h3>FedEx Ship Center</h3>
+          <p>310 W 34th St</p>
+          <p>New York, NY 10001</p>
+          <p style="margin-top:8px;font-size:13px;"><strong>Phone:</strong> (212) 555-0142</p>
+          <p class="location-hours">Open Now &bull; Closes 8:00 PM</p>
+          <div style="margin-top:12px;display:flex;gap:8px;">
+            <a href="#" class="btn-primary" style="padding:8px 16px;font-size:12px;">Get Directions</a>
+          </div>
+        </div>
+        <div class="location-card">
+          <span class="location-type">FedEx Drop Box</span>
+          <h3>FedEx Drop Box</h3>
+          <p>Grand Central Terminal</p>
+          <p>New York, NY 10017</p>
+          <p style="margin-top:8px;font-size:13px;">Last Pickup: 6:30 PM</p>
+          <p class="location-hours">Available 24/7</p>
+          <div style="margin-top:12px;display:flex;gap:8px;">
+            <a href="#" class="btn-primary" style="padding:8px 16px;font-size:12px;">Get Directions</a>
+          </div>
+        </div>
+        <div class="location-card">
+          <span class="location-type">FedEx Office</span>
+          <h3>FedEx Office Print & Ship Center</h3>
+          <p>1440 Broadway</p>
+          <p>New York, NY 10018</p>
+          <p style="margin-top:8px;font-size:13px;"><strong>Phone:</strong> (212) 555-0198</p>
+          <p class="location-hours">Open Now &bull; Closes 10:00 PM</p>
+          <div style="margin-top:12px;display:flex;gap:8px;">
+            <a href="#" class="btn-primary" style="padding:8px 16px;font-size:12px;">Get Directions</a>
+          </div>
+        </div>
+        <div class="location-card">
+          <span class="location-type">Walgreens</span>
+          <h3>Walgreens - FedEx OnSite</h3>
+          <p>350 5th Ave</p>
+          <p>New York, NY 10118</p>
+          <p style="margin-top:8px;font-size:13px;">Drop-off & Pickup available</p>
+          <p class="location-hours">Open Now &bull; Closes 10:00 PM</p>
+          <div style="margin-top:12px;display:flex;gap:8px;">
+            <a href="#" class="btn-primary" style="padding:8px 16px;font-size:12px;">Get Directions</a>
+          </div>
+        </div>
+        <div class="location-card">
+          <span class="location-type">FedEx Ship Center</span>
+          <h3>FedEx Ship Center</h3>
+          <p>100 Church St</p>
+          <p>New York, NY 10007</p>
+          <p style="margin-top:8px;font-size:13px;"><strong>Phone:</strong> (212) 555-0167</p>
+          <p class="location-hours">Open Now &bull; Closes 7:00 PM</p>
+          <div style="margin-top:12px;display:flex;gap:8px;">
+            <a href="#" class="btn-primary" style="padding:8px 16px;font-size:12px;">Get Directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none;">
+        <div class="footer-bottom-links">
+          <a href="#">Terms of Use</a><a href="#">Privacy Policy</a><a href="#">Accessibility</a>
+        </div>
+        <p>&copy; FedEx 1995-2026. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="/app.js"></script>
+</body>
+</html>

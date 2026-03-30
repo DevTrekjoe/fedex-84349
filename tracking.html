@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Your Package | FedEx</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- Top Utility Bar -->
+  <div class="utility-bar">
+    <div class="container utility-bar-inner">
+      <div class="utility-links">
+        <a href="#">FedEx Mobile</a>
+        <a href="#">Get Notifications</a>
+      </div>
+      <div class="utility-right">
+        <a href="#">English</a>
+        <a href="/login.html">Sign Up or Log In</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="main-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <svg viewBox="0 0 200 60" width="140" height="42">
+          <text x="5" y="42" font-family="Inter, sans-serif" font-weight="800" font-size="38" fill="#4D148C">Fed</text>
+          <text x="82" y="42" font-family="Inter, sans-serif" font-weight="800" font-size="38" fill="#FF6600">Ex</text>
+        </svg>
+      </a>
+      <nav class="main-nav">
+        <a href="/shipping.html" class="nav-link">Shipping</a>
+        <a href="/tracking.html" class="nav-link" style="border-bottom-color:#4D148C;color:#4D148C;">Tracking</a>
+        <a href="#" class="nav-link">Design & Print</a>
+        <a href="/locations.html" class="nav-link">Locations</a>
+        <a href="/support.html" class="nav-link">Support</a>
+        <a href="#" class="nav-link">Account</a>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Track Your Shipment</h1>
+      <p>Enter your tracking number to get real-time status updates</p>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="tracking-box" style="box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+        <div class="tracking-form" style="display:block;">
+          <label for="track-input">TRACKING NUMBER</label>
+          <div class="tracking-input-group">
+            <input type="text" id="track-input" placeholder="Enter your FedEx tracking number">
+            <button class="btn-primary" onclick="showTrackingResult()">TRACK</button>
+          </div>
+          <p style="font-size:13px;color:#888;margin-top:10px;">You can track up to 30 packages at once. Separate multiple tracking numbers with commas.</p>
+        </div>
+      </div>
+
+      <div class="tracking-result" id="tracking-result" style="display:none;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+          <div>
+            <h3 style="font-size:20px;color:#4D148C;margin-bottom:4px;">Tracking Number: 7489 2084 3920 0194</h3>
+            <p style="font-size:14px;color:#666;">FedEx Express &mdash; Estimated Delivery: Tomorrow by 10:30 AM</p>
+          </div>
+          <div style="text-align:right;">
+            <span style="display:inline-block;background:#FF6600;color:#fff;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:700;">In Transit</span>
+          </div>
+        </div>
+
+        <div style="background:#fff;border-radius:8px;padding:20px;margin-top:20px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:16px;">
+            <div>
+              <div style="font-size:12px;color:#888;text-transform:uppercase;letter-spacing:1px;">From</div>
+              <div style="font-size:15px;font-weight:600;">Memphis, TN 38118</div>
+            </div>
+            <div style="text-align:center;">
+              <svg width="80" height="24" viewBox="0 0 80 24">
+                <line x1="0" y1="12" x2="70" y2="12" stroke="#4D148C" stroke-width="2" stroke-dasharray="4"/>
+                <polygon points="70,6 80,12 70,18" fill="#FF6600"/>
+              </svg>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:12px;color:#888;text-transform:uppercase;letter-spacing:1px;">To</div>
+              <div style="font-size:15px;font-weight:600;">New York, NY 10001</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tracking-timeline">
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:16px;">Shipment Progress</h3>
+          <div class="timeline-item current">
+            <div class="timeline-date">Mar 30, 2026<br>8:42 AM</div>
+            <div class="timeline-detail">
+              <strong>In transit</strong>
+              <span>Newark, NJ — Package arrived at FedEx facility</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">Mar 30, 2026<br>3:15 AM</div>
+            <div class="timeline-detail">
+              <strong>Departed FedEx hub</strong>
+              <span>Indianapolis, IN — Package departed sort facility</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">Mar 29, 2026<br>10:22 PM</div>
+            <div class="timeline-detail">
+              <strong>Arrived at FedEx hub</strong>
+              <span>Indianapolis, IN — Package arrived at hub</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">Mar 29, 2026<br>5:47 PM</div>
+            <div class="timeline-detail">
+              <strong>Picked up</strong>
+              <span>Memphis, TN — Package picked up from sender</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">Mar 29, 2026<br>2:30 PM</div>
+            <div class="timeline-detail">
+              <strong>Shipment information sent to FedEx</strong>
+              <span>Memphis, TN — Label created</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none;">
+        <div class="footer-bottom-links">
+          <a href="#">Terms of Use</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Accessibility</a>
+        </div>
+        <p>&copy; FedEx 1995-2026. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showTrackingResult() {
+      document.getElementById('tracking-result').style.display = 'block';
+      document.getElementById('tracking-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  </script>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -331,7 +331,7 @@ body{
 
     <div class="track">
       <input type="text" placeholder="Tracking number">
-      <button>TRACK</button>
+      <button onclick="window.location.href='/tracking.html'">TRACK</button>
     </div>
 
   </div>
@@ -339,70 +339,8 @@ body{
 </div>
 
 
-<!-- ================= SCRIPT ================= -->
-<script>
-function switchTab(tab){
-  let tabs=document.querySelectorAll('.mobile-tab');
-  tabs.forEach(t=>t.classList.remove('active'));
 
-  if(tab==='track'){
-    tabs[1].classList.add('active');
-    document.getElementById('trackPanel').style.display='block';
-  }
-}
-</script>
-  <!-- Hero Section with Tracking -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1>What can we help you with?</h1>
-        <div class="tracking-box">
-          <div class="tracking-tabs">
-            <button class="track-tab active" data-tab="track">TRACK</button>
-            <button class="track-tab" data-tab="ship">SHIP</button>
-            <button class="track-tab" data-tab="rates">RATES & DELIVERY</button>
-          </div>
-          <div class="tracking-form" id="track-panel">
-            <label for="tracking-input">TRACKING ID</label>
-            <div class="tracking-input-group">
-              <input type="text" id="tracking-input" placeholder="Enter up to 30 tracking numbers">
-              <button class="btn-primary" onclick="window.location.href='/tracking.html'">TRACK</button>
-            </div>
-          </div>
-          <div class="tracking-form hidden" id="ship-panel">
-            <div class="ship-row">
-              <div class="ship-field">
-                <label>FROM</label>
-                <input type="text" placeholder="City or ZIP code">
-              </div>
-              <div class="ship-field">
-                <label>TO</label>
-                <input type="text" placeholder="City or ZIP code">
-              </div>
-            </div>
-            <button class="btn-primary" onclick="window.location.href='/shipping.html'">GET RATES</button>
-          </div>
-          <div class="tracking-form hidden" id="rates-panel">
-            <div class="ship-row">
-              <div class="ship-field">
-                <label>FROM</label>
-                <input type="text" placeholder="City or ZIP code">
-              </div>
-              <div class="ship-field">
-                <label>TO</label>
-                <input type="text" placeholder="City or ZIP code">
-              </div>
-              <div class="ship-field">
-                <label>WEIGHT</label>
-                <input type="text" placeholder="lbs">
-              </div>
-            </div>
-            <button class="btn-primary">GET RATES</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+ 
 
   <!-- Quick Actions -->
   <section class="quick-actions">
@@ -635,5 +573,17 @@ function switchTab(tab){
   </footer>
 
   <script src="/app.js"></script>
+  <!-- ================= SCRIPT ================= -->
+<script>
+function switchTab(tab){
+  let tabs=document.querySelectorAll('.mobile-tab');
+  tabs.forEach(t=>t.classList.remove('active'));
+
+  if(tab==='track'){
+    tabs[1].classList.add('active');
+    document.getElementById('trackPanel').style.display='block';
+  }
+}
+</script>
 </body>
 </html>

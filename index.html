@@ -7,18 +7,69 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
-  
-    <style>
-/* MOBILE */
+  <style>
 @media (max-width:768px){
-    .hero{flex-direction:column!important; padding:25px!important;}
-    .hero-text,.hero-img{width:100%!important;}
-    .hero-text h1{font-size:26px!important;}
-    .action{flex-direction:column!important; gap:20px;}
-    .icons{justify-content:space-between!important; width:100%;}
-    .track{width:100%!important;}
+
+  .desktop-hero{display:none !important;}
+  .mobile-hero{display:block !important;}
+
+  .mobile-tabs{
+    display:flex;
+    background:#eee;
+    margin-top:-40px;
+    box-shadow:0 -2px 10px rgba(0,0,0,0.1);
+  }
+
+  .mobile-tab{
+    flex:1;
+    text-align:center;
+    padding:14px;
+    font-size:12px;
+    background:#f5f5f5;
+  }
+
+  .mobile-tab.active{
+    background:#4D148C;
+    color:#fff;
+    transform:translateY(-15px);
+    border-radius:6px;
+  }
+
+  .mobile-track-box{
+    padding:20px;
+    background:#fff;
+  }
+
+  .mobile-track-input{
+    display:flex;
+    border-radius:50px;
+    overflow:hidden;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+  }
+
+  .mobile-track-input input{
+    flex:1;
+    padding:14px;
+    border:none;
+    outline:none;
+  }
+
+  .mobile-track-input button{
+    background:#ff6200;
+    color:#fff;
+    border:none;
+    padding:0 20px;
+    font-weight:bold;
+  }
+}
+
+/* DESKTOP */
+@media (min-width:769px){
+  .mobile-hero{display:none;}
 }
 </style>
+
+   
 
 </head>
 <body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
@@ -60,57 +111,90 @@
       </button>
     </div>
   </header>
-<!-- HERO -->
-<div class="hero" style="display:flex; padding:60px; background:#fff; align-items:center; justify-content:space-between;">
 
-    <div class="hero-text" style="width:45%;">
-        <h1 style="font-size:42px; font-weight:400; color:#333; line-height:1.2;">
+<!-- ================= MOBILE VERSION ================= -->
+<div class="mobile-hero" style="display:none; position:relative;">
+
+  <img src="https://via.placeholder.com/800x400"
+       style="width:100%; height:300px; object-fit:cover;">
+
+  <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+              color:#fff; text-align:center;">
+    <h2 style="font-size:26px; font-weight:500;">
+      Ship, manage,<br>track, deliver
+    </h2>
+  </div>
+
+  <!-- TABS -->
+  <div class="mobile-tabs">
+
+    <div class="mobile-tab">
+      📦<br>RATE & SHIP
+    </div>
+
+    <div class="mobile-tab active">
+      🔍<br>TRACK
+    </div>
+
+    <div class="mobile-tab">
+      📍<br>LOCATIONS
+    </div>
+
+  </div>
+
+  <!-- TRACK INPUT -->
+  <div class="mobile-track-box">
+    <div class="mobile-track-input">
+      <input type="text" placeholder="Tracking number">
+      <button>TRACK</button>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ================= DESKTOP VERSION ================= -->
+<div class="desktop-hero" style="display:flex; padding:60px; background:#fff; align-items:center; justify-content:space-between;">
+
+    <div style="width:45%;">
+        <h1 style="font-size:42px; font-weight:400; color:#333;">
             Keep your automotive<br> supply chain moving
         </h1>
 
-        <p style="color:#666; font-size:16px; line-height:1.6;">
-            From tires to transmissions, FedEx handles every part. Reach customers fast with flexible delivery options.
+        <p style="color:#666; font-size:16px;">
+            From tires to transmissions, FedEx handles every part.
         </p>
 
-        <a href="#" style="color:#007ab7; font-weight:600; text-decoration:none; display:inline-block; margin-top:15px;">
+        <a href="#" style="color:#007ab7; font-weight:600;">
             GEAR UP TO SHIP →
         </a>
     </div>
 
-    <div class="hero-img" style="width:50%;">
-        <img src="https://via.placeholder.com/700x400" style="width:100%; border-radius:6px;">
+    <div style="width:50%;">
+        <img src="https://via.placeholder.com/700x400" style="width:100%;">
     </div>
 </div>
 
 
-<!-- ACTION BAR -->
-<div class="action" style="width:85%; margin:-50px auto 20px; background:#eee; border-radius:12px; padding:25px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 6px 15px rgba(0,0,0,0.08);">
+<!-- DESKTOP ACTION BAR -->
+<div class="desktop-hero" style="width:85%; margin:-50px auto 20px; background:#eee; border-radius:12px; padding:25px; display:flex; justify-content:space-between; box-shadow:0 6px 15px rgba(0,0,0,0.08);">
 
-    <!-- ICONS -->
-    <div class="icons" style="display:flex; gap:40px;">
-
-        <div style="text-align:center; cursor:pointer; transition:0.3s;">
-            <svg width="28" height="28" fill="#333"><rect width="24" height="18" x="2" y="5" rx="2"/></svg>
-            <div style="font-size:13px;">Get a quote</div>
-        </div>
-
-        <div style="text-align:center; cursor:pointer; transition:0.3s;">
-            <svg width="28" height="28" fill="#333"><path d="M2 7h24v14H2z"/></svg>
-            <div style="font-size:13px;">Ship now</div>
-        </div>
-
-        <div style="text-align:center; cursor:pointer; transition:0.3s;">
-            <svg width="28" height="28" fill="#333"><circle cx="14" cy="14" r="10"/></svg>
-            <div style="font-size:13px;">Locations</div>
-        </div>
-
-        <div style="text-align:center; cursor:pointer; transition:0.3s;">
-            <svg width="28" height="28" fill="#333"><path d="M2 14h24"/></svg>
-            <div style="font-size:13px;">Support</div>
-        </div>
-
+    <div style="display:flex; gap:40px;">
+        <div>📄<br><small>Get a quote</small></div>
+        <div>📦<br><small>Ship now</small></div>
+        <div>📍<br><small>Locations</small></div>
+        <div>🎧<br><small>Support</small></div>
     </div>
 
+    <div style="display:flex; background:#fff; border-radius:50px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+        <input type="text" placeholder="Tracking number" style="border:none; padding:14px; width:250px;">
+        <button style="background:#ff6200; color:#fff; border:none; padding:0 25px;">TRACK</button>
+    </div>
+
+</div>
+
+
+  
     <!-- TRACKING -->
     <div class="track" style="display:flex; background:#fff; border-radius:50px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
 

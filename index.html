@@ -8,73 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
 
-  <style>
-
-
-.left {
-    flex: 1;
-}
-
-.right {
-    flex: 1;
-    text-align: center;
-}
-
-.right img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 6px;
-}
-
-h2 {
-    font-size: 28px;
-    margin-bottom: 25px;
-    font-weight: 500;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-}
-
-.box h4 {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.box p {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.5;
-}
-
-.note {
-    font-size: 12px;
-    color: #777;
-    margin-top: 20px;
-}
-
-.btn {
-    margin-top: 25px;
-}
-
-.btn button {
-    padding: 12px 25px;
-    border: 1px solid #f60;
-    background: transparent;
-    color: #f60;
-    font-weight: 600;
-    cursor: pointer;
-    letter-spacing: 1px;
-}
-
-.btn button:hover {
-    background: #f60;
-    color: #fff;
-}
-</style>
+  
 <style>
 
 /* ===== COLORS ===== */
@@ -415,50 +349,59 @@ body{
 
 </div>
 
-<div class="container">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 25px;">
 
-    <!-- LEFT SIDE -->
-    <div class="left">
-        <h2>Why ship with FedEx?</h2>
+  <!-- RIGHT SIDE IMAGE FIRST ON MOBILE -->
+  <div style="flex: 1 1 400px; text-align: center; order: 2; margin-bottom: 20px;">
+    <img src="https://fedex-87e86.web.app/static/media/p8.3ff6cf4d6cefdc8d8080.jpg" alt="FedEx Worker" style="width: 100%; max-width: 400px; border-radius: 6px;">
+  </div>
 
-        <div class="grid">
-            <div class="box">
-                <h4>Innovative solutions for reliability & speed</h4>
-                <p>Whether it's across states or worldwide, we prioritize the secure and swift arrival of your shipments.</p>
-            </div>
+  <!-- LEFT SIDE -->
+  <div style="flex: 1 1 400px; order: 1;">
+    <h2 style="font-size: 28px; margin-bottom: 25px; font-weight: 500;">Why ship with FedEx?</h2>
 
-            <div class="box">
-                <h4>Premium shipping at professional rates</h4>
-                <p>When you need reliable delivery and careful handling, trust FedEx to get your items where they need to go on time.</p>
-            </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+      <div style="margin-bottom: 15px;">
+        <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Innovative solutions for reliability & speed</h4>
+        <p style="font-size: 14px; color: #555; line-height: 1.5;">Whether it's across states or worldwide, we prioritize the secure and swift arrival of your shipments.</p>
+      </div>
 
-            <div class="box">
-                <h4>We ship everywhere*</h4>
-                <p>From major cities to remote locations, your goods can reach worldwide.</p>
-            </div>
+      <div style="margin-bottom: 15px;">
+        <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Premium shipping at professional rates</h4>
+        <p style="font-size: 14px; color: #555; line-height: 1.5;">When you need reliable delivery and careful handling, trust FedEx to get your items where they need to go on time.</p>
+      </div>
 
-            <div class="box">
-                <h4>Wallet-friendly shipping with no weighing</h4>
-                <p>FedEx can ship your packages for less than the Post Office. With FedEx One Rate®, you get flat-rate, 2-day shipping for packages up to 50 lbs.</p>
-            </div>
-        </div>
+      <div style="margin-bottom: 15px;">
+        <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">We ship everywhere*</h4>
+        <p style="font-size: 14px; color: #555; line-height: 1.5;">From major cities to remote locations, your goods can reach worldwide.</p>
+      </div>
 
-        <div class="note">
-            <p>*FedEx doesn't ship anywhere sanctioned by the U.S.</p>
-            <p>**Visit the One Rate page for details.</p>
-        </div>
-
-        <div class="btn">
-            <button>START SHIPPING NOW</button>
-        </div>
+      <div style="margin-bottom: 15px;">
+        <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Wallet-friendly shipping with no weighing</h4>
+        <p style="font-size: 14px; color: #555; line-height: 1.5;">FedEx can ship your packages for less than the Post Office. With FedEx One Rate®, you get flat-rate, 2-day shipping for packages up to 50 lbs.</p>
+      </div>
     </div>
 
-    <!-- RIGHT SIDE -->
-    <div class="right">
-        <img src="https://fedex-87e86.web.app/static/media/p8.3ff6cf4d6cefdc8d8080.jpg" alt="FedEx Worker">
+    <div style="font-size: 12px; color: #777; margin-top: 20px;">
+      <p>*FedEx doesn't ship anywhere sanctioned by the U.S.</p>
+      <p>**Visit the One Rate page for details.</p>
     </div>
+
+    <div style="margin-top: 25px;">
+      <button style="padding: 12px 25px; border: 1px solid #f60; background: transparent; color: #f60; font-weight: 600; cursor: pointer; letter-spacing: 1px;">START SHIPPING NOW</button>
+    </div>
+  </div>
 
 </div>
+
+<!-- RESPONSIVE CSS -->
+<style>
+@media (max-width: 768px) {
+  div[style*="order: 2"] { order: 1 !important; margin-bottom: 20px; }
+  div[style*="order: 1"] { order: 2 !important; }
+  div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+}
+</style>
 
   <!-- Quick Actions -->
   <section class="quick-actions">

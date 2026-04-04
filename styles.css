@@ -19,7 +19,7 @@ img { max-width: 100%; display: block; }
 .main-header { background: #fff; border-bottom: 3px solid #4D148C; padding: 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
 .logo svg { display: block; }
-.main-nav { display: flex; gap: 0; }
+.main-nav { display: flex; gap: 0; color:#fff}
 .nav-link { padding: 20px 18px; font-size: 14px; font-weight: 600; color: #333; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s; border-bottom: 3px solid transparent; margin-bottom: -3px; }
 .nav-link:hover { color: #4D148C; border-bottom-color: #4D148C; }
 .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }

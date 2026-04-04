@@ -7,6 +7,46 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
+  <style>
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column !important;
+        padding: 30px !important;
+    }
+
+    .hero-text, .hero-img {
+        width: 100% !important;
+    }
+
+    .hero-text h1 {
+        font-size: 28px !important;
+    }
+
+    .action-box {
+        flex-direction: column !important;
+        gap: 20px !important;
+        padding: 20px !important;
+    }
+
+    .icons {
+        width: 100% !important;
+        justify-content: space-around !important;
+        gap: 10px !important;
+    }
+
+    .track-box {
+        width: 100% !important;
+    }
+
+    .track-box input {
+        width: 65% !important;
+    }
+
+    .track-box button {
+        width: 35% !important;
+    }
+}
+</style>
 </head>
 <body>
   <!-- Top Utility Bar -->
@@ -47,11 +87,11 @@
       </button>
     </div>
   </header>
-<!-- HERO SECTION -->
-<div style="display:flex; align-items:center; justify-content:space-between; padding:60px; background:#ffffff;">
+<!-- HERO -->
+<div class="hero" style="display:flex; align-items:center; justify-content:space-between; padding:60px; background:#ffffff;">
 
-    <!-- LEFT TEXT -->
-    <div style="width:45%;">
+    <!-- TEXT -->
+    <div class="hero-text" style="width:45%;">
         <h1 style="font-size:40px; font-weight:500; color:#333; margin-bottom:20px;">
             Keep your automotive<br> supply chain moving
         </h1>
@@ -67,20 +107,19 @@
         </a>
     </div>
 
-    <!-- RIGHT IMAGE -->
-    <div style="width:50%;">
+    <!-- IMAGE -->
+    <div class="hero-img" style="width:50%;">
         <img src="https://via.placeholder.com/700x400" 
              style="width:100%; border-radius:5px;">
     </div>
 </div>
 
 
-<!-- ACTION + TRACKING BOX -->
-<div style="width:85%; margin:-40px auto 20px auto; background:#eeeeee; padding:25px; border-radius:10px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+<!-- ACTION BOX -->
+<div class="action-box" style="width:85%; margin:-40px auto 20px auto; background:#eeeeee; padding:25px; border-radius:10px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
 
     <!-- ICONS -->
-    <div style="display:flex; gap:40px;">
-
+    <div class="icons" style="display:flex; gap:40px;">
         <div style="text-align:center;">
             <div style="font-size:24px;">📄</div>
             <div style="font-size:14px;">Get a quote</div>
@@ -93,18 +132,17 @@
 
         <div style="text-align:center;">
             <div style="font-size:24px;">📍</div>
-            <div style="font-size:14px;">Find FedEx locations</div>
+            <div style="font-size:14px;">Find locations</div>
         </div>
 
         <div style="text-align:center;">
             <div style="font-size:24px;">🎧</div>
-            <div style="font-size:14px;">Contact support</div>
+            <div style="font-size:14px;">Support</div>
         </div>
-
     </div>
 
-    <!-- TRACKING -->
-    <div style="display:flex; align-items:center;">
+    <!-- TRACK -->
+    <div class="track-box" style="display:flex; align-items:center;">
         <input type="text" placeholder="Tracking number"
             style="padding:12px; width:250px; border:1px solid #ccc; outline:none;">
 
@@ -116,7 +154,7 @@
 </div>
 
 
-<!-- NOTICE BAR -->
+<!-- NOTICE -->
 <div style="width:85%; margin:20px auto; border:1px solid #4da3ff; padding:12px; background:#f0f8ff; color:#333;">
     <strong>ℹ️ US Supreme Court Tariff Update.</strong>
     <a href="#" style="color:#0073e6;">See how this may impact you.</a>

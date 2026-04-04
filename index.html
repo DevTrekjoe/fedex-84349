@@ -592,5 +592,14 @@ function switchTab(tab){
   }
 }
 </script>
+
+  <script>
+const mobileBtn = document.querySelector('.mobile-menu-btn');
+const nav = document.querySelector('.main-nav');
+
+mobileBtn.addEventListener('click', () => {
+  nav.classList.toggle('show');
+});
+</script>
 </body>
 </html>

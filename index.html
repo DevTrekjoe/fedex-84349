@@ -7,47 +7,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
-  <style>
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column !important;
-        padding: 30px !important;
-    }
-
-    .hero-text, .hero-img {
-        width: 100% !important;
-    }
-
-    .hero-text h1 {
-        font-size: 28px !important;
-    }
-
-    .action-box {
-        flex-direction: column !important;
-        gap: 20px !important;
-        padding: 20px !important;
-    }
-
-    .icons {
-        width: 100% !important;
-        justify-content: space-around !important;
-        gap: 10px !important;
-    }
-
-    .track-box {
-      margin-top:50px;
-        width: 100% !important;
-    }
-
-    .track-box input {
-        width: 65% !important;
-    }
-
-    .track-box button {
-        width: 35% !important;
-    }
+  
+    <style>
+/* MOBILE */
+@media (max-width:768px){
+    .hero{flex-direction:column!important; padding:25px!important;}
+    .hero-text,.hero-img{width:100%!important;}
+    .hero-text h1{font-size:26px!important;}
+    .action{flex-direction:column!important; gap:20px;}
+    .icons{justify-content:space-between!important; width:100%;}
+    .track{width:100%!important;}
 }
 </style>
+
 </head>
 <body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
   <!-- Top Utility Bar -->
@@ -89,78 +61,92 @@
     </div>
   </header>
 <!-- HERO -->
-<div class="hero" style="display:flex; align-items:center; justify-content:space-between; padding:60px; background:#ffffff;">
+<div class="hero" style="display:flex; padding:60px; background:#fff; align-items:center; justify-content:space-between;">
 
-    <!-- TEXT -->
     <div class="hero-text" style="width:45%;">
-        <h1 style="font-size:40px; font-weight:500; color:#333; margin-bottom:20px;">
+        <h1 style="font-size:42px; font-weight:400; color:#333; line-height:1.2;">
             Keep your automotive<br> supply chain moving
         </h1>
 
-        <p style="font-size:16px; color:#666; line-height:1.6;">
-            From tires to transmissions, FedEx handles every part.
-            Reach customers fast with flexible delivery options and
-            logistics that scale with you.
+        <p style="color:#666; font-size:16px; line-height:1.6;">
+            From tires to transmissions, FedEx handles every part. Reach customers fast with flexible delivery options.
         </p>
 
-        <a href="#" style="display:inline-block; margin-top:20px; color:#0073e6; font-weight:bold; text-decoration:none;">
-            GEAR UP TO SHIP
+        <a href="#" style="color:#007ab7; font-weight:600; text-decoration:none; display:inline-block; margin-top:15px;">
+            GEAR UP TO SHIP →
         </a>
     </div>
 
-    <!-- IMAGE -->
     <div class="hero-img" style="width:50%;">
-        <img src="https://via.placeholder.com/700x400" 
-             style="width:100%; border-radius:5px;">
+        <img src="https://via.placeholder.com/700x400" style="width:100%; border-radius:6px;">
     </div>
 </div>
 
 
-<!-- ACTION BOX -->
-<div class="action-box" style="width:85%; margin:-40px auto 20px auto; background:#eeeeee; padding:25px; border-radius:10px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+<!-- ACTION BAR -->
+<div class="action" style="width:85%; margin:-50px auto 20px; background:#eee; border-radius:12px; padding:25px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 6px 15px rgba(0,0,0,0.08);">
 
     <!-- ICONS -->
     <div class="icons" style="display:flex; gap:40px;">
-        <div style="text-align:center;">
-            <div style="font-size:24px;">📄</div>
-            <div style="font-size:14px;">Get a quote</div>
+
+        <div style="text-align:center; cursor:pointer; transition:0.3s;">
+            <svg width="28" height="28" fill="#333"><rect width="24" height="18" x="2" y="5" rx="2"/></svg>
+            <div style="font-size:13px;">Get a quote</div>
         </div>
 
-        <div style="text-align:center;">
-            <div style="font-size:24px;">📦</div>
-            <div style="font-size:14px;">Ship now</div>
+        <div style="text-align:center; cursor:pointer; transition:0.3s;">
+            <svg width="28" height="28" fill="#333"><path d="M2 7h24v14H2z"/></svg>
+            <div style="font-size:13px;">Ship now</div>
         </div>
 
-        <div style="text-align:center;">
-            <div style="font-size:24px;">📍</div>
-            <div style="font-size:14px;">Find locations</div>
+        <div style="text-align:center; cursor:pointer; transition:0.3s;">
+            <svg width="28" height="28" fill="#333"><circle cx="14" cy="14" r="10"/></svg>
+            <div style="font-size:13px;">Locations</div>
         </div>
 
-        <div style="text-align:center;">
-            <div style="font-size:24px;">🎧</div>
-            <div style="font-size:14px;">Support</div>
+        <div style="text-align:center; cursor:pointer; transition:0.3s;">
+            <svg width="28" height="28" fill="#333"><path d="M2 14h24"/></svg>
+            <div style="font-size:13px;">Support</div>
         </div>
+
     </div>
 
-    <!-- TRACK -->
-    <div class="track-box" style="display:flex; align-items:center;">
-        <input type="text" placeholder="Tracking number"
-            style="padding:12px; width:250px; border:1px solid #ccc; outline:none;">
+    <!-- TRACKING -->
+    <div class="track" style="display:flex; background:#fff; border-radius:50px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
 
-        <button style="padding:12px 25px; background:#ff6600; color:#fff; border:none; cursor:pointer;">
+        <input type="text" placeholder="Tracking number"
+        style="border:none; padding:14px 20px; width:250px; outline:none; font-size:14px;">
+
+        <button style="background:#ff6200; color:#fff; border:none; padding:0 25px; font-weight:600; cursor:pointer; transition:0.3s;">
             TRACK
         </button>
+
     </div>
 
 </div>
 
 
 <!-- NOTICE -->
-<div style="width:85%; margin:20px auto; border:1px solid #4da3ff; padding:12px; background:#f0f8ff; color:#333;">
-    <strong>ℹ️ US Supreme Court Tariff Update.</strong>
-    <a href="#" style="color:#0073e6;">See how this may impact you.</a>
+<div style="width:85%; margin:20px auto; padding:14px; border-left:4px solid #007ab7; background:#f0f7ff; font-size:14px;">
+    ℹ️ US Supreme Court Tariff Update. 
+    <a href="#" style="color:#007ab7;">See how this may impact you</a>
 </div>
 
+
+<!-- ANIMATIONS -->
+<style>
+.icons div:hover{
+    transform:translateY(-5px);
+}
+
+button:hover{
+    background:#e65a00;
+}
+
+input:focus{
+    box-shadow:inset 0 0 0 2px #007ab7;
+}
+</style>
   <!-- Hero Section with Tracking -->
   <section class="hero">
     <div class="container">

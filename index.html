@@ -357,74 +357,55 @@ body{
 
   <div style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center;">
 
-    <!-- LEFT SIDE -->
-    <div style="flex:1 1 520px; padding-right:30px; box-sizing:border-box;">
+    <!-- LEFT SIDE (TEXT) -->
+    <div class="text-block" style="flex:1 1 520px; padding-right:30px; box-sizing:border-box; order:1;">
 
       <h2 style="
         font-size:30px;
         font-weight:400;
         color:#4d148c;
         margin-bottom:30px;
-        letter-spacing:0.2px;
       ">
         Why ship with FedEx?
       </h2>
 
-      <div style="
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:28px 40px;
-      ">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px 40px;">
 
-        <!-- ITEM 1 -->
         <div>
-          <h4 style="font-size:16px; font-weight:600; margin-bottom:6px; color:#333;">
-            Innovative solutions for reliability & speed
-          </h4>
+          <h4 style="font-size:16px; font-weight:600; margin-bottom:6px;">Innovative solutions for reliability & speed</h4>
           <p style="font-size:14px; color:#666; line-height:1.5;">
             Whether it's across states or worldwide, we prioritize the secure and swift arrival of your shipments.
           </p>
         </div>
 
-        <!-- ITEM 2 -->
         <div>
-          <h4 style="font-size:16px; font-weight:600; margin-bottom:6px; color:#333;">
-            Premium shipping at professional rates
-          </h4>
+          <h4 style="font-size:16px; font-weight:600; margin-bottom:6px;">Premium shipping at professional rates</h4>
           <p style="font-size:14px; color:#666; line-height:1.5;">
             When you need reliable delivery and careful handling, trust FedEx to get your items where they need to go on time.
           </p>
         </div>
 
-        <!-- ITEM 3 -->
         <div>
-          <h4 style="font-size:16px; font-weight:600; margin-bottom:6px; color:#333;">
-            We ship everywhere*
-          </h4>
+          <h4 style="font-size:16px; font-weight:600; margin-bottom:6px;">We ship everywhere*</h4>
           <p style="font-size:14px; color:#666; line-height:1.5;">
             From major cities to remote locations, your goods can reach worldwide.
           </p>
         </div>
 
-        <!-- ITEM 4 -->
         <div>
-          <h4 style="font-size:16px; font-weight:600; margin-bottom:6px; color:#333;">
-            Wallet-friendly shipping with no weighing
-          </h4>
+          <h4 style="font-size:16px; font-weight:600; margin-bottom:6px;">Wallet-friendly shipping with no weighing</h4>
           <p style="font-size:14px; color:#666; line-height:1.5;">
-            FedEx can ship your packages for less than the Post Office. With FedEx One Rate®, you get flat-rate, 2-day shipping for packages up to 50 lbs.
+            FedEx can ship your packages for less than the Post Office.
           </p>
         </div>
 
       </div>
 
-      <!-- FOOTNOTE -->
-      <div style="margin-top:20px; font-size:12px; color:#777; line-height:1.4;">
+      <div style="margin-top:20px; font-size:12px; color:#777;">
         <div>*FedEx doesn't ship anywhere sanctioned by the U.S.</div>
         <div>**Visit the One Rate page for details.</div>
       </div>
 
-      <!-- BUTTON -->
       <div style="margin-top:30px;">
         <a href="#" style="
           display:inline-block;
@@ -432,9 +413,7 @@ body{
           border:2px solid #ff6600;
           color:#ff6600;
           text-decoration:none;
-          font-size:14px;
           font-weight:600;
-          letter-spacing:0.5px;
         ">
           START SHIPPING NOW
         </a>
@@ -442,21 +421,33 @@ body{
 
     </div>
 
-    <!-- RIGHT SIDE IMAGE -->
-    <div style="flex:1 1 420px; text-align:center; margin-top:20px;">
-      <img src="https://fedex-87e86.web.app/static/media/p8.3ff6cf4d6cefdc8d8080.jpg"
+    <!-- RIGHT SIDE (IMAGE) -->
+    <div class="image-block" style="flex:1 1 420px; text-align:center; order:2;">
+      <img src="https://via.placeholder.com/420x480"
            alt="FedEx worker"
-           style="width:100%; max-width:420px; height:auto; display:block; margin:0 auto;">
+           style="width:100%; max-width:420px; display:block; margin:0 auto;">
     </div>
 
   </div>
 
-  <!-- MOBILE FIX (INLINE ONLY TRICK) -->
+  <!-- RESPONSIVE -->
   <style>
     @media (max-width: 768px) {
+
+      .image-block {
+        order: 1 !important;
+        margin-bottom: 25px;
+      }
+
+      .text-block {
+        order: 2 !important;
+        padding-right: 0 !important;
+      }
+
       div[style*="grid-template-columns:1fr 1fr"] {
         grid-template-columns: 1fr !important;
       }
+
     }
   </style>
 

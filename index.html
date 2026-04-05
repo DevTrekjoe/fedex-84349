@@ -859,6 +859,149 @@ body{
   </footer>
 
   <script src="/app.js"></script>
+
+<!-- TOP BANNER -->
+<div id="translate-banner" style="
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background:#4d148c;
+  color:#fff;
+  padding:10px 20px;
+  font-family:Arial, sans-serif;
+  display:none;
+  z-index:9999;
+  text-align:center;
+  font-size:14px;
+">
+  This page is in English. View it in your language?
+  
+  <span onclick="openModal()" style="
+    margin-left:15px;
+    text-decoration:underline;
+    cursor:pointer;
+    font-weight:600;
+  ">Translate</span>
+
+  <span onclick="dismissBanner()" style="
+    margin-left:15px;
+    cursor:pointer;
+  ">✕</span>
+</div>
+
+<!-- MODAL BACKDROP -->
+<div id="translate-modal" style="
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:10000;
+">
+
+  <!-- MODAL BOX -->
+  <div style="
+    background:#fff;
+    padding:25px;
+    border-radius:8px;
+    width:90%;
+    max-width:400px;
+    text-align:center;
+    font-family:Arial, sans-serif;
+  ">
+    
+    <h3 style="margin-bottom:10px; color:#333;">
+      Translate this page
+    </h3>
+
+    <p style="font-size:14px; color:#666; margin-bottom:20px;">
+      We detected your language. Would you like to translate this page?
+    </p>
+
+    <button onclick="translatePage()" style="
+      background:#ff6600;
+      color:#fff;
+      border:none;
+      padding:10px 18px;
+      margin-right:10px;
+      cursor:pointer;
+      border-radius:4px;
+      font-weight:600;
+    ">
+      Yes, translate
+    </button>
+
+    <button onclick="closeModal()" style="
+      background:#eee;
+      border:none;
+      padding:10px 18px;
+      cursor:pointer;
+      border-radius:4px;
+    ">
+      No thanks
+    </button>
+
+  </div>
+</div>
+
+<!-- GOOGLE TRANSLATE -->
+<div id="google_translate_element" style="display:none;"></div>
+
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en'
+  }, 'google_translate_element');
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+const userLang = navigator.language || navigator.userLanguage;
+
+// Show banner if not English
+window.onload = function() {
+  const saved = localStorage.getItem("translateChoice");
+  if (!saved && !userLang.startsWith("en")) {
+    document.getElementById("translate-banner").style.display = "block";
+    document.body.style.marginTop = "50px"; // push content down
+  }
+};
+
+function openModal() {
+  document.getElementById("translate-modal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("translate-modal").style.display = "none";
+  localStorage.setItem("translateChoice", "no");
+}
+
+function dismissBanner() {
+  document.getElementById("translate-banner").style.display = "none";
+  document.body.style.marginTop = "0";
+  localStorage.setItem("translateChoice", "no");
+}
+
+function translatePage() {
+  localStorage.setItem("translateChoice", "yes");
+
+  const select = document.querySelector(".goog-te-combo");
+  if (select) {
+    select.value = userLang.split("-")[0];
+    select.dispatchEvent(new Event("change"));
+  }
+
+  closeModal();
+}
+</script>
+  
   <!-- ================= SCRIPT ================= -->
 <script>
 function switchTab(tab){

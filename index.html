@@ -965,14 +965,14 @@ function googleTranslateElementInit() {
 <script>
 const userLang = navigator.language || navigator.userLanguage;
 
-// Show banner if not English
-window.onload = function() {
+window.addEventListener("load", function() {
   const saved = localStorage.getItem("translateChoice");
+
   if (!saved && !userLang.startsWith("en")) {
     document.getElementById("translate-banner").style.display = "block";
-    document.body.style.marginTop = "50px"; // push content down
+    document.body.style.marginTop = "50px";
   }
-};
+});
 
 function openModal() {
   document.getElementById("translate-modal").style.display = "flex";
@@ -993,10 +993,15 @@ function translatePage() {
   localStorage.setItem("translateChoice", "yes");
 
   const select = document.querySelector(".goog-te-combo");
-  if (select) {
-    select.value = userLang.split("-")[0];
-    select.dispatchEvent(new Event("change"));
+
+  // 🔥 Wait until Google loads
+  if (!select) {
+    alert("Translator still loading, try again in 1 second.");
+    return;
   }
+
+  select.value = userLang.split("-")[0];
+  select.dispatchEvent(new Event("change"));
 
   closeModal();
 }

@@ -1,1 +1,6 @@
-
+{
+  "subject": "FedEx Shipment Update",
+  "title": "FedEx Shipment Update",
+  "message": "Dear Valued Customer, Greetings from FedEx. Your shipment has been successfully registered and is now being prepared for dispatch. You can track your package using the tracking number below:",
+  "button_text": "Proceed"
+}

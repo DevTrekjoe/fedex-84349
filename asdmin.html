@@ -1,19 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Send FedEx Email</title>
-</head>
+<h2>Create Shipment</h2>
+<input id="email" placeholder="Customer Email"><br>
+<input id="from" placeholder="From"><br>
+<input id="to" placeholder="To"><br>
+<input id="estimated" placeholder="Estimated"><br>
+<button onclick="create()">Create</button>
 
-<body style="font-family: Arial; padding:20px; background:#f5f5f5;">
+<hr>
 
-<h2>Send FedEx Notification</h2>
+<h2>Update Shipment</h2>
+<input id="track" placeholder="Tracking"><br>
+<input id="status" placeholder="Status"><br>
+<input id="location" placeholder="Location"><br>
+<button onclick="update()">Update</button>
 
-<form action="send.php" method="POST">
-  <input type="email" name="email" placeholder="User Email" required><br><br>
-  <input type="text" name="tracking" placeholder="Tracking Number" required><br><br>
+<script>
+const API = "https://yourdomain.com/api/";
+const TOKEN = "securetoken123";
 
-  <button type="submit">Send</button>
-</form>
+async function create() {
+  const res = await fetch(API+"create.php", {
+    method: "POST",
+    headers: { "Authorization": TOKEN },
+    body: JSON.stringify({
+      email: email.value,
+      from: from.value,
+      to: to.value,
+      estimated: estimated.value
+    })
+  });
 
-</body>
-</html>
+  const data = await res.json();
+  alert("Tracking: " + data.tracking);
+}
+
+async function update() {
+  await fetch(API+"update.php", {
+    method: "POST",
+    headers: { "Authorization": TOKEN },
+    body: JSON.stringify({
+      tracking: track.value,
+      status: status.value,
+      location: location.value
+    })
+  });
+
+  alert("Updated!");
+}
+</script>

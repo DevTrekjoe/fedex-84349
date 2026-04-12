@@ -1,76 +1,19 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Send FedEx Email</title>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 
 <body style="font-family: Arial; padding:20px; background:#f5f5f5;">
 
 <h2>Send FedEx Notification</h2>
 
-<form id="form">
-  <input type="email" id="email" placeholder="User Email" required><br><br>
-  <input type="text" id="tracking" placeholder="Tracking Number" required><br><br>
+<form action="send.php" method="POST">
+  <input type="email" name="email" placeholder="User Email" required><br><br>
+  <input type="text" name="tracking" placeholder="Tracking Number" required><br><br>
 
   <button type="submit">Send</button>
 </form>
-
-<script>
-(function(){
-  emailjs.init("YOUR_PUBLIC_KEY"); // from EmailJS
-})();
-
-document.getElementById("form").addEventListener("submit", async function(e){
-  e.preventDefault();
-
-  const email = document.getElementById("email").value;
-  const tracking = document.getElementById("tracking").value;
-
-  // load JSON template
-  const res = await fetch('template.json');
-  const data = await res.json();
-
-  const htmlTemplate = `
-  <div style="background:#f5f5f5;padding:20px;font-family:Arial;">
-    <div style="max-width:500px;margin:auto;background:#fff;padding:20px;border-radius:8px;">
-      
-      <div style="text-align:center;">
-        <h1 style="color:#4D148C;">Fed<span style="color:#FF6600;">Ex</span></h1>
-      </div>
-
-      <h2 style="color:#4D148C;">${data.title}</h2>
-
-      <p>${data.message}</p>
-
-      <p><strong>Tracking Number:</strong> ${tracking}</p>
-
-      <div style="text-align:center;margin:30px 0;">
-        <a href="#" style="background:#4D148C;color:#fff;padding:12px 25px;text-decoration:none;border-radius:5px;">
-          ${data.button_text}
-        </a>
-      </div>
-
-      <p>Best Regards,<br>FedEx Deliveries</p>
-
-    </div>
-  </div>
-  `;
-
-  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-    to_email: email,
-    message_html: htmlTemplate
-  })
-  .then(() => {
-    alert("Email sent!");
-  })
-  .catch(err => {
-    console.error(err);
-    alert("Failed");
-  });
-});
-</script>
 
 </body>
 </html>

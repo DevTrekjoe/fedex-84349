@@ -157,5 +157,48 @@
     }
   </script>
   <script src="/app.js"></script>
+  <script>
+async function showTrackingResult() {
+  const tracking = document.getElementById('track-input').value;
+
+  const res = await fetch("https://yourdomain.com/api/track.php?tracking=" + tracking);
+  const data = await res.json();
+
+  if (data.error) {
+    alert("Tracking not found");
+    return;
+  }
+
+  // Show result
+  document.getElementById('tracking-result').style.display = 'block';
+
+  // Update UI dynamically
+  document.querySelector("#tracking-result h3").innerText =
+    "Tracking Number: " + data.tracking;
+
+  document.querySelector("#tracking-result p").innerText =
+    "FedEx Express — Estimated Delivery: " + data.estimated;
+
+  // Status badge
+  document.querySelector("#tracking-result span").innerText = data.status;
+
+  // Timeline
+  let timelineHTML = "";
+  data.events.forEach((event, index) => {
+    timelineHTML += `
+      <div class="timeline-item ${index === 0 ? 'current' : ''}">
+        <div class="timeline-date">${event.date}</div>
+        <div class="timeline-detail">
+          <strong>${event.title}</strong>
+          <span>${event.location}</span>
+        </div>
+      </div>
+    `;
+  });
+
+  document.querySelector(".tracking-timeline").innerHTML =
+    "<h3>Shipment Progress</h3>" + timelineHTML;
+}
+</script>
 </body>
 </html>

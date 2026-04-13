@@ -200,5 +200,15 @@ async function showTrackingResult() {
     "<h3>Shipment Progress</h3>" + timelineHTML;
 }
 </script>
+
+  <script>
+const params = new URLSearchParams(window.location.search);
+const tracking = params.get("tracking");
+
+console.log("Tracking:", tracking);
+
+// 👉 You can now fetch data using this
+// fetch(API + "track.php?tracking=" + tracking)
+</script>
 </body>
 </html>

@@ -154,6 +154,7 @@
     function showTrackingResult() {
       document.getElementById('tracking-result').style.display = 'block';
       document.getElementById('tracking-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+     
     }
   </script>
   <script src="/app.js"></script>
@@ -181,7 +182,9 @@ async function showTrackingResult() {
 
   // Status badge
   document.querySelector("#tracking-result span").innerText = data.status;
-
+ // FROM & TO
+document.getElementById("fromLocation").innerText = data.sender;
+document.getElementById("toLocation").innerText = data.receiver;
   // Timeline
   let timelineHTML = "";
   data.events.forEach((event, index) => {

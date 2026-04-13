@@ -342,10 +342,10 @@ body{
 
   </div>
 
-  <div class="track">
-    <input type="text" placeholder="Tracking number">
-    <button>TRACK</button>
-  </div>
+ <div class="track"> 
+  <input type="text" id="trackInput" placeholder="Tracking number">
+  <button onclick="goTrack()">TRACK</button>
+</div>
 
 </div>
 
@@ -892,7 +892,19 @@ function switchTab(tab){
   }
 }
 </script>
+<script>
+function goTrack() {
+  const tracking = document.getElementById("trackInput").value.trim();
 
+  if (!tracking) {
+    alert("Please enter a tracking number");
+    return;
+  }
+
+  // 🔥 Redirect with tracking number
+  window.location.href = "tracking.html?tracking=" + encodeURIComponent(tracking);
+}
+</script>
   <script>
 const mobileBtn = document.querySelector('.mobile-menu-btn');
 const nav = document.querySelector('.main-nav');

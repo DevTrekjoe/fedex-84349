@@ -197,15 +197,9 @@ window.onload = function() {
   const loggedIn = localStorage.getItem("admin_logged_in");
 
   if (loggedIn === "true") {
-    function showDashboard() {
-  document.getElementById("loginBox").style.display = "none";
-  document.getElementById("dashboard").style.display = "block";
-
-  loadShipments(); // 👈 load data
-}
+    showDashboard(); // ✅ CALL IT
   }
 };
-
 // 🔐 LOGIN
 function login() {
   const user = document.getElementById("username").value;
@@ -227,8 +221,12 @@ function logout() {
 
 // SHOW DASHBOARD
 function showDashboard() {
+  function showDashboard() {
   document.getElementById("loginBox").style.display = "none";
   document.getElementById("dashboard").style.display = "block";
+
+  loadShipments(); // 🔥 THIS WAS MISSING
+}
 }
 
 // 📦 CREATE

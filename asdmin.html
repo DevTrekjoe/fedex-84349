@@ -276,16 +276,20 @@ async function update() {
       })
     });
 
-    const data = await res.json();
+    const text = await res.text();
+    console.log("UPDATE RAW:", text); // 👈 DEBUG
 
-   if (data.status === "updated") {
-  alert("✅ Shipment Updated");
-  loadShipments(); // 🔥 ADD THIS LINE
-} else {
-  alert("❌ Update failed");
-}
+    const data = JSON.parse(text);
+
+    if (data.status === "updated") {
+      alert("✅ Shipment Updated");
+      loadShipments();
+    } else {
+      alert("❌ " + (data.error || "Update failed"));
+    }
 
   } catch (err) {
+    console.error(err);
     alert("Server error");
   }
 }

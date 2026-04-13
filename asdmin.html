@@ -299,25 +299,32 @@ async function loadShipments() {
     const res = await fetch(API + "get_shipments.php");
     const data = await res.json();
 
+    console.log("DATA:", data); // 👈 debug
+
     const tbody = document.querySelector("#shipmentTable tbody");
     tbody.innerHTML = "";
+
+    if (!data.length) {
+      tbody.innerHTML = "<tr><td colspan='7'>No shipments found</td></tr>";
+      return;
+    }
 
     data.forEach(item => {
       tbody.innerHTML += `
         <tr>
           <td>${item.tracking}</td>
-          <td>${item.email}</td>
-          <td>${item.sender}</td>
-          <td>${item.receiver}</td>
-          <td><strong>${item.status}</strong></td>
-          <td>${item.location}</td>
-          <td>${item.estimated}</td>
+          <td>${item.email || "-"}</td>
+          <td>${item.sender || "-"}</td>
+          <td>${item.receiver || "-"}</td>
+          <td><strong style="color:#4D148C">${item.status}</strong></td>
+          <td>${item.location || "-"}</td>
+          <td>${item.estimated || "-"}</td>
         </tr>
       `;
     });
 
   } catch (err) {
-    console.error(err);
+    console.error("ERROR:", err);
   }
 }
 </script>

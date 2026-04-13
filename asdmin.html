@@ -162,17 +162,38 @@ button:hover {
 const API = "https://xn--km-xqa.com/";
 const TOKEN = "securetoken123";
 
+// 🔐 CHECK LOGIN ON LOAD
+window.onload = function() {
+  const loggedIn = localStorage.getItem("admin_logged_in");
+
+  if (loggedIn === "true") {
+    showDashboard();
+  }
+};
+
 // 🔐 LOGIN
 function login() {
   const user = document.getElementById("username").value;
   const pass = document.getElementById("password").value;
 
   if (user === "fedex-91user" && pass === "delisi23") {
-    document.getElementById("loginBox").style.display = "none";
-    document.getElementById("dashboard").style.display = "block";
+    localStorage.setItem("admin_logged_in", "true");
+    showDashboard();
   } else {
     alert("Invalid login");
   }
+}
+
+// 🚪 LOGOUT
+function logout() {
+  localStorage.removeItem("admin_logged_in");
+  location.reload();
+}
+
+// SHOW DASHBOARD
+function showDashboard() {
+  document.getElementById("loginBox").style.display = "none";
+  document.getElementById("dashboard").style.display = "block";
 }
 
 // 📦 CREATE

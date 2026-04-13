@@ -1,49 +1,234 @@
-<h2>Create Shipment</h2>
-<input id="email" placeholder="Customer Email"><br>
-<input id="from" placeholder="From"><br>
-<input id="to" placeholder="To"><br>
-<input id="estimated" placeholder="Estimated"><br>
-<button onclick="create()">Create</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
 
-<hr>
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', Arial, sans-serif;
+}
 
-<h2>Update Shipment</h2>
-<input id="track" placeholder="Tracking"><br>
-<input id="status" placeholder="Status"><br>
-<input id="location" placeholder="Location"><br>
-<button onclick="update()">Update</button>
+body {
+  margin: 0;
+  background: #f5f7fa;
+}
+
+/* LOGIN */
+.login-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #4D148C;
+}
+
+/* DASHBOARD */
+.dashboard {
+  display: none;
+  padding: 20px;
+}
+
+.header {
+  background: #4D148C;
+  color: #fff;
+  padding: 15px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* CARD */
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  color: #4D148C;
+}
+
+/* INPUT */
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #4D148C;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #3a0f6f;
+}
+
+/* MOBILE */
+@media(max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="login-container" id="loginBox">
+  <div class="login-box">
+    <h2>Admin Login</h2>
+    <input id="username" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard">
+
+  <div class="header">FedEx Admin Dashboard</div>
+
+  <div class="grid">
+
+    <!-- CREATE -->
+    <div class="card">
+      <h2>Create Shipment</h2>
+      <input id="email" placeholder="Customer Email">
+      <input id="from" placeholder="From">
+      <input id="to" placeholder="To">
+      <input id="estimated" placeholder="Estimated Delivery">
+      <button onclick="create()">Create Shipment</button>
+    </div>
+
+    <!-- UPDATE -->
+    <div class="card">
+      <h2>Update Shipment</h2>
+      <input id="track" placeholder="Tracking Number">
+      <input id="status" placeholder="Status (In Transit, Delivered...)">
+      <input id="location" placeholder="Current Location">
+      <button onclick="update()">Update Shipment</button>
+    </div>
+
+  </div>
+
+</div>
 
 <script>
 const API = "https://xn--km-xqa.com/";
 const TOKEN = "securetoken123";
 
-async function create() {
-  const res = await fetch(API+"create.php", {
-    method: "POST",
-    headers: { "Authorization": TOKEN },
-    body: JSON.stringify({
-      email: email.value,
-      from: from.value,
-      to: to.value,
-      estimated: estimated.value
-    })
-  });
+// 🔐 LOGIN
+function login() {
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
 
-  const data = await res.json();
-  alert("Tracking: " + data.tracking);
+  if (user === "fedex-91user" && pass === "delisi23") {
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+  } else {
+    alert("Invalid login");
+  }
 }
 
-async function update() {
-  await fetch(API+"update.php", {
-    method: "POST",
-    headers: { "Authorization": TOKEN },
-    body: JSON.stringify({
-      tracking: track.value,
-      status: status.value,
-      location: location.value
-    })
-  });
+// 📦 CREATE
+async function create() {
+  try {
+    const res = await fetch(API + "create.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": TOKEN
+      },
+      body: JSON.stringify({
+        email: email.value,
+        from: from.value,
+        to: to.value,
+        estimated: estimated.value
+      })
+    });
 
-  alert("Updated!");
+    const data = await res.json();
+
+    if (data.tracking) {
+      alert("✅ Tracking Created: " + data.tracking);
+    } else {
+      alert("❌ Error creating shipment");
+    }
+
+  } catch (err) {
+    alert("Server error");
+  }
+}
+
+// 🔄 UPDATE
+async function update() {
+  try {
+    const res = await fetch(API + "update.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": TOKEN
+      },
+      body: JSON.stringify({
+        tracking: track.value,
+        status: status.value,
+        location: location.value
+      })
+    });
+
+    const data = await res.json();
+
+    if (data.status === "updated") {
+      alert("✅ Shipment Updated");
+    } else {
+      alert("❌ Update failed");
+    }
+
+  } catch (err) {
+    alert("Server error");
+  }
 }
 </script>
+
+</body>
+</html>

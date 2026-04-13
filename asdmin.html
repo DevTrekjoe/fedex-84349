@@ -262,6 +262,16 @@ async function create() {
 
 // 🔄 UPDATE
 async function update() {
+  const tracking = document.getElementById("track").value;
+  const statusVal = document.getElementById("status").value;
+  const locationVal = document.getElementById("location").value;
+
+  // 🔥 VALIDATION
+  if (!tracking || !statusVal || !locationVal) {
+    alert("❌ Please fill all fields");
+    return;
+  }
+
   try {
     const res = await fetch(API + "update.php", {
       method: "POST",
@@ -270,14 +280,14 @@ async function update() {
         "Authorization": TOKEN
       },
       body: JSON.stringify({
-        tracking: track.value,
-        status: status.value,
-        location: location.value
+        tracking: tracking,
+        status: statusVal,
+        location: locationVal
       })
     });
 
     const text = await res.text();
-    console.log("UPDATE RAW:", text); // 👈 DEBUG
+    console.log("UPDATE RAW:", text);
 
     const data = JSON.parse(text);
 

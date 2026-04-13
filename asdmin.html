@@ -108,6 +108,17 @@ button:hover {
     grid-template-columns: 1fr;
   }
 }
+
+  table th, table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  font-size: 14px;
+}
+
+table tr:hover {
+  background: #f9f9f9;
+}
 </style>
 </head>
 
@@ -155,7 +166,26 @@ button:hover {
     </div>
 
   </div>
+<div class="card" style="margin-top:20px;">
+  <h2>All Shipments</h2>
 
+  <div style="overflow-x:auto;">
+    <table id="shipmentTable" style="width:100%;border-collapse:collapse;">
+      <thead>
+        <tr style="background:#4D148C;color:#fff;">
+          <th style="padding:10px;">Tracking</th>
+          <th>Email</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Status</th>
+          <th>Location</th>
+          <th>Estimated</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
 </div>
 
 <script>
@@ -167,7 +197,12 @@ window.onload = function() {
   const loggedIn = localStorage.getItem("admin_logged_in");
 
   if (loggedIn === "true") {
-    showDashboard();
+    function showDashboard() {
+  document.getElementById("loginBox").style.display = "none";
+  document.getElementById("dashboard").style.display = "block";
+
+  loadShipments(); // 👈 load data
+}
   }
 };
 
@@ -216,10 +251,11 @@ async function create() {
     const data = await res.json();
 
     if (data.tracking) {
-      alert("✅ Tracking Created: " + data.tracking);
-    } else {
-      alert("❌ Error creating shipment");
-    }
+  alert("✅ Tracking Created: " + data.tracking);
+  loadShipments(); // 🔥 ADD THIS LINE
+} else {
+  alert("❌ Error creating shipment");
+}
 
   } catch (err) {
     alert("Server error");
@@ -244,17 +280,46 @@ async function update() {
 
     const data = await res.json();
 
-    if (data.status === "updated") {
-      alert("✅ Shipment Updated");
-    } else {
-      alert("❌ Update failed");
-    }
+   if (data.status === "updated") {
+  alert("✅ Shipment Updated");
+  loadShipments(); // 🔥 ADD THIS LINE
+} else {
+  alert("❌ Update failed");
+}
 
   } catch (err) {
     alert("Server error");
   }
 }
 </script>
+<script>
+// 📊 LOAD SHIPMENTS
+async function loadShipments() {
+  try {
+    const res = await fetch(API + "get_shipments.php");
+    const data = await res.json();
 
+    const tbody = document.querySelector("#shipmentTable tbody");
+    tbody.innerHTML = "";
+
+    data.forEach(item => {
+      tbody.innerHTML += `
+        <tr>
+          <td>${item.tracking}</td>
+          <td>${item.email}</td>
+          <td>${item.sender}</td>
+          <td>${item.receiver}</td>
+          <td><strong>${item.status}</strong></td>
+          <td>${item.location}</td>
+          <td>${item.estimated}</td>
+        </tr>
+      `;
+    });
+
+  } catch (err) {
+    console.error(err);
+  }
+}
+</script>
 </body>
 </html>

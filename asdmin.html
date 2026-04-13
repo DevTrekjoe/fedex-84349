@@ -160,7 +160,13 @@ table tr:hover {
     <div class="card">
       <h2>Update Shipment</h2>
       <input id="track" placeholder="Tracking Number">
-      <input id="status" placeholder="Status (In Transit, Delivered...)">
+      
+      <select id="status">
+  <option>Shipment created</option>
+  <option>In Transit</option>
+  <option>Out for Delivery</option>
+  <option>Delivered</option>
+</select>
       <input id="location" placeholder="Current Location">
       <button onclick="update()">Update Shipment</button>
     </div>

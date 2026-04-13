@@ -384,7 +384,7 @@ async function loadShipments() {
     const tbody = document.querySelector("#shipmentTable tbody");
     tbody.innerHTML = "";
 
-   data.forEach(item => {
+  data.forEach(item => {
   tbody.innerHTML += `
     <tr>
       <td>${item.tracking}</td>
@@ -394,6 +394,11 @@ async function loadShipments() {
       <td>${item.status}</td>
       <td>${item.location}</td>
       <td>${item.estimated}</td>
+      <td>
+        <button class="delete-btn" onclick="deleteShipment('${item.tracking}')">
+          Delete
+        </button>
+      </td>
     </tr>
   `;
 });
